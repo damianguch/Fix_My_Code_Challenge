@@ -14,7 +14,10 @@ def not_found(error):
     """ json 404 page """
     return make_response(jsonify({"error": "Not found"}), 404)
 
+@app.route('/api/v1/status')
+def api_status():
+    return jsonify({'status': 'API is up and running'})
 
 if __name__ == "__main__":
     # python -m api.v1.app 
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
